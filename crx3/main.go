@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"crx/crx3/command"
+	"github/zeqjone/crx/crx3/command"
 )
 
 func main() {

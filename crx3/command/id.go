@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"crx"
+	"github/zeqjone/crx"
 
 	"github.com/spf13/cobra"
 )

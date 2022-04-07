@@ -1,8 +1,8 @@
 package command
 
 import (
-	"crx"
 	"errors"
+	"github/zeqjone/crx"
 	"os"
 	"path"
 	"strings"

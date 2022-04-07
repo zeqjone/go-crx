@@ -1,8 +1,8 @@
 package command
 
 import (
-	crx3 "crx"
 	"errors"
+	crx3 "github/zeqjone/crx"
 	"os"
 
 	"github.com/spf13/cobra"

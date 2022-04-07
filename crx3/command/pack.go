@@ -4,7 +4,7 @@ import (
 	"crypto/rsa"
 	"errors"
 
-	crx3 "crx"
+	crx3 "github/zeqjone/crx"
 
 	"github.com/spf13/cobra"
 )

@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"crx"
+	"github/zeqjone/crx"
 
 	"github.com/spf13/cobra"
 )
