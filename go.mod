@@ -1,4 +1,4 @@
-module github/zeqjone/crx
+module github.com/zeqjone/go-crx
 
 go 1.17
 

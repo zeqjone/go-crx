@@ -13,7 +13,7 @@ import (
 	"path"
 	"strings"
 
-	"github/zeqjone/crx/pb"
+	"github.com/zeqjone/go-crx/pb"
 
 	proto "github.com/golang/protobuf/proto"
 )

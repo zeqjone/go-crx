@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github/zeqjone/crx/pb"
+	"github.com/zeqjone/go-crx/pb"
 
 	"github.com/golang/protobuf/proto"
 )

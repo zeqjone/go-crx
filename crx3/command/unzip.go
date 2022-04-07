@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	crx3 "github/zeqjone/crx"
+	crx3 "github.com/zeqjone/go-crx"
 
 	"github.com/spf13/cobra"
 )

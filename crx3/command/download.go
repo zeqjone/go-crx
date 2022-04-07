@@ -2,10 +2,11 @@ package command
 
 import (
 	"errors"
-	"github/zeqjone/crx"
 	"os"
 	"path"
 	"strings"
+
+	"github.com/zeqjone/go-crx"
 
 	"github.com/spf13/cobra"
 )
