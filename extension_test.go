@@ -1,4 +1,4 @@
-package crx3
+package crx
 
 import (
 	"os"
@@ -26,6 +26,9 @@ func TestExtension_Pack(t *testing.T) {
 	assert.Nil(t, err)
 	customFilename := filepath.Join(os.TempDir(), "go.crx")
 	err = Extension("./testdata/pack/extension").PackTo(customFilename, pk)
+	if err != nil {
+		t.Fatal(err)
+	}
 	assert.True(t, Extension(customFilename).IsCRX3())
 	assert.Nil(t, os.Remove(customFilename))
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mediabuyerbot/go-crx3/crx3/command"
+	"crx/crx3/command"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-package crx3
+package crx
 
 import (
 	"os"
@@ -20,7 +20,7 @@ func TestPack(t *testing.T) {
 	err = Pack(have, "", pk)
 	assert.Nil(t, err)
 	assert.True(t, fileExists(want))
-	assert.True(t, isCRX(want))
+	assert.True(t, isCRX3(want))
 	err = os.Remove(want)
 	assert.Nil(t, err)
 
@@ -30,7 +30,7 @@ func TestPack(t *testing.T) {
 	err = Pack(have, "", pk)
 	assert.Nil(t, err)
 	assert.True(t, fileExists(want))
-	assert.True(t, isCRX(want))
+	assert.True(t, isCRX3(want))
 	err = os.Remove(want)
 	assert.Nil(t, err)
 
@@ -41,12 +41,14 @@ func TestPack(t *testing.T) {
 	err = Pack(have, "", nil)
 	assert.Nil(t, err)
 	assert.True(t, fileExists(want))
-	assert.True(t, isCRX(want))
+	assert.True(t, isCRX3(want))
 	assert.True(t, fileExists(wantPem))
 	err = os.Remove(want)
 	assert.Nil(t, err)
 	err = os.Remove(wantPem)
-
+	if err != nil {
+		t.Fatal(err)
+	}
 	// pack unsupported type
 	have = "./testdata/pack/somefile.fg"
 	err = Pack(have, "", nil)

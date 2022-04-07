@@ -1,12 +1,12 @@
 package command
 
 import (
+	"crx"
 	"errors"
 	"os"
 	"path"
 	"strings"
 
-	crx3 "github.com/mediabuyerbot/go-crx3"
 	"github.com/spf13/cobra"
 )
 
@@ -47,11 +47,11 @@ func newDownloadCmd() *cobra.Command {
 				opts.Outfile = opts.Outfile + ".crx"
 			}
 
-			if err := crx3.DownloadFromWebStore(extensionID, opts.Outfile); err != nil {
+			if err := crx.DownloadFromWebStore(extensionID, opts.Outfile); err != nil {
 				return err
 			}
 			if opts.Unpack {
-				if err := crx3.Unpack(opts.Outfile); err != nil {
+				if err := crx.Unpack(opts.Outfile); err != nil {
 					return err
 				}
 				if err := os.Remove(opts.Outfile); err != nil {

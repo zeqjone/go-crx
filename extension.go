@@ -1,4 +1,4 @@
-package crx3
+package crx
 
 import (
 	"crypto/rsa"

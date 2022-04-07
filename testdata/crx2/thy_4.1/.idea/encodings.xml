@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/../f2ehint/.gitignore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../f2ehint/check/css/checker.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../f2ehint/check/css/config.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../f2ehint/test/check/test.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/popup.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/juhuoyuan.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/manifest.json" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

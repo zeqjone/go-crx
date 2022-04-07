@@ -4,7 +4,8 @@ import (
 	"errors"
 	"strings"
 
-	crx3 "github.com/mediabuyerbot/go-crx3"
+	crx3 "crx"
+
 	"github.com/spf13/cobra"
 )
 

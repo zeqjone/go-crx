@@ -1,4 +1,4 @@
-package crx3
+package crx
 
 import (
 	"encoding/binary"
@@ -22,10 +22,10 @@ func isDir(filename string) bool {
 }
 
 func isCRC(filename string) bool {
-	return isCRX(filename)
+	return isCRX3(filename)
 }
 
-func isCRX(filename string) bool {
+func isCRX3(filename string) bool {
 	size := 12
 	file, err := os.Open(filename)
 	if err != nil {
@@ -48,6 +48,29 @@ func isCRX(filename string) bool {
 	return true
 }
 
+func isCRX2(filename string) bool {
+	size := 12
+	file, err := os.Open(filename)
+	if err != nil {
+		return false
+	}
+	defer file.Close()
+	buf := make([]byte, size)
+	if _, err := file.Read(buf); err != nil {
+		return false
+	}
+	if len(buf) < size {
+		return false
+	}
+	if string(buf[0:4]) != "Cr24" {
+		return false
+	}
+	if binary.LittleEndian.Uint32(buf[4:8]) != 2 {
+		return false
+	}
+	return true
+}
+
 func openCrxFile(filename string) (*os.File, error) {
 	if err := crxFileExists(filename); err != nil {
 		return nil, err
@@ -60,7 +83,7 @@ func openCrxFile(filename string) (*os.File, error) {
 }
 
 func crxFileExists(filename string) error {
-	if !isCRX(filename) {
+	if !isCRX3(filename) {
 		return fmt.Errorf("%v got %s", ErrUnknownFileExtension, filename)
 	}
 	return nil

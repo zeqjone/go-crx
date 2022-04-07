@@ -1,4 +1,4 @@
-package crx3
+package crx
 
 import (
 	"bytes"
@@ -16,6 +16,11 @@ func TestID(t *testing.T) {
 	id, err := ID(filename)
 	assert.Nil(t, err)
 	assert.Equal(t, "dgmchnekcpklnjppdmmjlgpmpohmpmgp", id)
+
+	filename = "./testdata/crx2/thy_4.1.crx"
+	id, err = ID(filename)
+	assert.Nil(t, err)
+	assert.Equal(t, "hakoliodbjomjbkaomcngimnjodadolb", id)
 }
 
 func TestIDNegative(t *testing.T) {

@@ -7,7 +7,8 @@ import (
 	"io"
 	"os"
 
-	crx3 "github.com/mediabuyerbot/go-crx3"
+	"crx"
+
 	"github.com/spf13/cobra"
 )
 
@@ -31,7 +32,7 @@ func newBase64Cmd() *cobra.Command {
 			return nil
 		},
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			extension := crx3.Extension(args[0])
+			extension := crx.Extension(args[0])
 			b, err := extension.Base64()
 			if err != nil {
 				return err

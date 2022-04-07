@@ -1,4 +1,4 @@
-package crx3
+package crx
 
 import (
 	"bytes"
@@ -13,7 +13,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/mediabuyerbot/go-crx3/pb"
+	"crx/pb"
 
 	proto "github.com/golang/protobuf/proto"
 )

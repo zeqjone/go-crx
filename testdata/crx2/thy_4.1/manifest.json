@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "淘货源",
+    "description": "【1688出品】在您浏览淘宝和天猫的商品时，自动推荐最相似的1688货源给你，利润更优，选择更多！每天店铺货源新鲜直达，商机发现一网打尽，专业，专属！进货，在这里，从”心“定义！",
+    "version": "4.1",
+    "icons": {
+        "128": "icon128.png"
+    },
+    "background": {
+        "scripts": [
+            "/js/background.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": [
+            "entry.js"
+        ]
+    }],
+    "permissions": [
+        "tabs", 
+        "*://*/*"
+    ],
+    "update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query",
+    "content_security_policy": "script-src 'self' https://astyle-src.alicdn.com; object-src 'self'"
+}

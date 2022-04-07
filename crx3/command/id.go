@@ -4,7 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/mediabuyerbot/go-crx3"
+	"crx"
+
 	"github.com/spf13/cobra"
 )
 
@@ -20,7 +21,7 @@ func newIDCmd() *cobra.Command {
 		},
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			infile := args[0]
-			id, err := crx3.ID(infile)
+			id, err := crx.ID(infile)
 			if err != nil {
 				return err
 			}

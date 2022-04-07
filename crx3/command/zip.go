@@ -1,10 +1,10 @@
 package command
 
 import (
+	crx3 "crx"
 	"errors"
 	"os"
 
-	crx3 "github.com/mediabuyerbot/go-crx3"
 	"github.com/spf13/cobra"
 )
 

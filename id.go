@@ -1,12 +1,13 @@
-package crx3
+package crx
 
 import (
 	"bytes"
+	"crypto/sha256"
 	"encoding/binary"
 	"fmt"
 	"io/ioutil"
 
-	"github.com/mediabuyerbot/go-crx3/pb"
+	"crx/pb"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -15,8 +16,12 @@ const symbols = "abcdefghijklmnopqrstuvwxyz"
 
 // ID returns the extension id.
 func ID(filename string) (id string, err error) {
-	if !isCRX(filename) {
-		return id, ErrUnsupportedFileFormat
+	if !isCRX3(filename) {
+		if !isCRX2(filename) {
+			return id, ErrUnsupportedFileFormat
+		} else {
+			return idCrx2(filename)
+		}
 	}
 
 	crx, err := ioutil.ReadFile(filename)
@@ -56,4 +61,28 @@ func strIDx() map[rune]int {
 		index[char] = i
 	}
 	return index
+}
+
+func idCrx2(filename string) (id string, err error) {
+	crx, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return "", err
+	}
+	var (
+		pkLenth    = binary.LittleEndian.Uint32(crx[8:12])
+		sigLenth   = binary.LittleEndian.Uint32(crx[12:16])
+		metaSize   = uint32(16)
+		headLength = pkLenth + sigLenth + metaSize
+		v          = crx[metaSize:headLength]
+	)
+	hasded := sha256.Sum256(v[:pkLenth])
+	strhashed := fmt.Sprintf("%x", hasded)
+
+	buf := bytes.NewBuffer(nil)
+	idx := strIDx()
+	for _, char := range strhashed[:32] {
+		index := idx[char]
+		buf.WriteString(string(symbols[index]))
+	}
+	return buf.String(), nil
 }
