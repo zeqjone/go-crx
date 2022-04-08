@@ -3,7 +3,6 @@ package crx
 import (
 	"bytes"
 	"encoding/binary"
-	"fmt"
 	"io/ioutil"
 	"strings"
 
@@ -70,16 +69,7 @@ func UnpackCrx2(filename string) error {
 		sigLenth   = binary.LittleEndian.Uint32(crx[12:16])
 		metaSize   = uint32(16)
 		headLength = pkLenth + sigLenth + metaSize
-		v          = crx[metaSize:headLength]
 	)
-	header := &crx2Header{
-		Flag:          string(crx[0:4]),
-		FormatVersion: binary.LittleEndian.Uint32(crx[4:8]),
-		PublicKey:     fmt.Sprintf("%x", v[:pkLenth]),
-		Signature:     fmt.Sprintf("%x", v[pkLenth:]),
-	}
-	fmt.Printf("header: %#v", header)
-
 	data := crx[headLength:]
 	reader := bytes.NewReader(data)
 	size := int64(len(data))
